@@ -1,0 +1,246 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-attachment: fixed;
+}
+
+.background {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+}
+
+.button-64 {
+  background-image: linear-gradient(144deg,#AF40FF,#5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 12px;
+  padding: 4px; /* gradient border thickness */
+  box-shadow: rgba(151,65,252,0.2) 0 15px 30px -5px;
+  cursor: pointer;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  width: 240px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.button-64 span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(5, 6, 45);
+  color: white;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+small {
+  font-size: 0.7rem;
+  color: #ccc;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Text groups */
+.group-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.group-container h1 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.group-container p {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+/* Navigation */
+.navigation {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  padding: 20px;
+  gap: 30px;
+}
+
+.logo {
+  height: 60px;
+  object-fit: contain;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* below the button */
+  left: 0;
+  background-color: #05062d; /* matches your button span background */
+  min-width: 240px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1;
+  flex-direction: column;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: white;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(95, 66, 243, 0.6);
+  border-radius: 8px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* Optional: keep the button style consistent */
+.dropdown > .button-64 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Fit all video frames in one page */
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.video-card {
+  width: 30%; /* 3 per row */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-card video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-card h2 {
+  font-size: 18px;
+  margin-top: 10px;
+  text-align: center;
+  color: rgb(50, 46, 46);
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+.navigation span {
+  color: #555;
+  padding: 0 5px;
+}
+
+@media (max-width: 900px) {
+  .video-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-card {
+    width: 100%;
+  }
+}
+
+.video-card video {
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.video-card video.active {
+  transform: scale(1.8); /* how much it enlarges */
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Optional: keep other videos dim when one plays */
+.video-grid.dimmed .video-card video:not(.active) {
+  opacity: 0.4;
+  filter: blur(1px);
+}

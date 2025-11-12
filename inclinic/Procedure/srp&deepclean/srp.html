@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scaling and Root Planing (Deep Cleaning)</title>
+  <link rel="stylesheet" href="../../../css/style.css">
+</head>
+
+<body>
+    <body class="background">
+      <header>
+        <div class="logo-container">
+          <img src="../../../bfclogo/bfcadjlogo.png" alt="Bradley Free Clinic Logo" class="logo" />
+        </div>
+      </header>
+      <nav class="navigation">
+        <a href="../../../index.html">Home</a>
+        <span>&gt;</span>
+        <a href="../../inclinicmenu.html">In Clinic Menu</a>
+        <span>&gt;</span>
+      </nav>
+        <div class="button-grid" id="all-buttons"></div>
+  
+  <div class="video-grid">
+    <div class="video-card">
+    <video controls>
+      <source src="Intro_Deep_SRP.mp4" type="video/mp4">
+    </video>
+    <h2>SRP|Introduction</h2>
+  </div>
+  <div class="video-card">
+    <video controls>
+      <source src="Bone_Loss_Procedure_Deep_SRP.mp4" type="video/mp4">
+    </video>
+    <h2>SRP|Bone Loss</h2>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="Gingivitis_ProcedureExpl_Deep_SRP.mp4" type="video/mp4">
+    </video>
+    <h2>SRP|Gingivitis</h2>
+  </div>
+
+  <div class="video-card">
+    <video controls>
+      <source src="Healthy_ProcedureExpl_Deep_SRP.mp4" type="video/mp4">
+    </video>
+    <h2>SRP|Healthy Gum</h2>
+  </div>
+  <div class="video-card">
+    <video controls>
+      <source src="Post_ProcedureCare_Deep_SRP.mp4" type="video/mp4">
+    </video>
+    <h2>SRP|Post-Procedure Care</h2>
+  </div>
+</div>
+<script>
+  const videos = document.querySelectorAll('video');
+  const videoGrid = document.querySelector('.video-grid');
+
+  videos.forEach(video => {
+    video.addEventListener('play', () => {
+      // Stop all other videos and remove their "active" state
+      videos.forEach(v => {
+        if (v !== video) {
+          v.pause();
+          v.classList.remove('active');
+        }
+      });
+
+      // Add zoom and dim effect
+      video.classList.add('active');
+      videoGrid.classList.add('dimmed');
+    });
+
+    // When paused or ended, remove the zoom and restore others
+    video.addEventListener('pause', () => {
+      video.classList.remove('active');
+      videoGrid.classList.remove('dimmed');
+    });
+
+    video.addEventListener('ended', () => {
+      video.classList.remove('active');
+      videoGrid.classList.remove('dimmed');
+    });
+  });
+</script>
+</body>
+</html>
